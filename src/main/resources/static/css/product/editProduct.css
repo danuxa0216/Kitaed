@@ -1,0 +1,37 @@
+body {
+    background: #E6E6FA;
+}
+
+#interface {
+    width: 90%;
+    max-height: 100%;
+    margin: 75px auto;
+    padding: 75px;
+}
+
+h3 {
+    font-family: "Calibri";
+}
+
+label {
+    font-family: "Calibri Light";
+    text-decoration: none;
+    padding: 10px;
+    margin: 3px;
+}
+
+input, select, textarea {
+    width: 200px;
+    padding: 10px;
+    margin: 3px;
+}
+
+label:hover {
+    color: white;
+}
+
+input:hover, select:hover, textarea:hover {
+    /*background-color: white;*/
+    color: #9370DB;
+    box-shadow: 1px 1px 25px 1px #b1a1d3;
+}

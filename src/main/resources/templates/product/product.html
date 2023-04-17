@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список товаров</title>
+    <link th:href="@{/css/product/product.css}" type="text/css" rel="stylesheet">
+</head>
+<body>
+<div id="interface">
+    <h1>КИТАЕД</h1>
+    <h3>китайская авторская кухня</h3>
+    <form th:method="POST" th:action="@{/product/search}">
+        <fieldset>
+            <legend>ПОИСК</legend>
+            <label for="search">поиск по наименованию</label>
+            <input type="text" id="search" name="search" th:value="*{value_search}">
+            <br>
+            <p>цена(руб.)</p>
+            <label for="from">от</label>
+            <input type="text" name="from" id="from" th:value="*{value_price_from}"><br>
+            <label for="to">до</label>
+            <input type="text" name="to" id="to" th:value="*{value_price_to}">
+            <br>
+            <br>
+            <div>
+                <input type="radio" id="ascending_price" name="price" value="sorted_by_ascending_price">
+                <label for="ascending_price">отсортировать по возрастанию цены</label>
+                <input type="radio" id="descending_price" name="price"
+                       value="sorted_by_descending_price">
+                <label for="descending_price">отсортировать по убыванию цены</label>
+                <p>категория товаров: </p>
+                <input type="radio" id="traditional" name="category" value="traditional">
+                <label for="traditional">традиционные блюда</label>
+                <input type="radio" id="sweet" name="category" value="sweet">
+                <label for="sweet">десерты</label>
+                <input type="radio" id="tea" name="category" value="tea">
+                <label for="tea">напитки</label>
+                <br>
+                <br>
+                <input type="submit" value="НАЙТИ">
+            </div>
+        </fieldset>
+    </form>
+    <hr>
+    <div id="searchResult">
+        <h3>РЕЗУЛЬТАТ ПОИСКА</h3>
+        <div th:each="product : ${search_product}">
+            <img th:src="'/img/' + ${product.imageList[0].getFileName()}" width="300px">
+            <br>
+            <a th:href="@{/product/info/{id}(id=${product.getId()})}" th:text="${product.getTitle()}"></a>
+            <p th:text="'Цена: ' + ${product.getPrice()}"></p>
+            <hr>
+        </div>
+    </div>
+    <hr>
+    <h3>ПОПРОБУЙТЕ ТАКЖЕ</h3>
+    <div th:each="product : ${products}">
+        <img th:src="'/img/' + ${product.imageList[0].getFileName()}" width="300px">
+        <br>
+        <a th:href="@{/product/info/{id}(id=${product.getId()})}" th:text="${product.getTitle()}"></a>
+        <p th:text="'Цена: ' + ${product.getPrice()}"></p>
+        <hr>
+    </div>
+    <form method="post" th:action="@{/logout}">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+        <button type="submit">ВЫЙТИ ИЗ ЛИЧНОГО КАБИНЕТА</button>
+    </form>
+</div>
+</body>
+</html>

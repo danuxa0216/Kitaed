@@ -18,7 +18,7 @@ public class PersonDetails implements UserDetails {
         this.person = person;
     }
 
-    public Person getPerson(){
+    public Person getPerson() {
         return this.person;
     }
 

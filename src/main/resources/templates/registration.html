@@ -3,21 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Регистрация</title>
+    <link th:href="@{/css/registration.css}" type="text/css" rel="stylesheet">
 </head>
 <body>
-<h3>Регистрация</h3>
-<form method="post" th:action="@{/registration}" th:object="${person}">
-    <label for="login">Веведите логин: </label>
+<div id="interface">
+<h3>РЕГИСТРАЦИЯ</h3>
+<form method="post" th:actioin="@{/registration}" th:object="${person}">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+    <label for="login">введите логин: </label>
     <input type="text" th:field="*{login}" id="login">
-    <div style="color: red" th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></div><br>
-
-    <label for="password">Веведите пароль: </label>
+    <div style="color: brown" th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></div>
+    <br>
+    <label for="password">введите пароль: </label>
     <input type="password" th:field="*{password}" id="password">
-    <div style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div><br>
-
-    <input type="submit" value="Зарегистироваться">
-
-    <a href="/authentication">Вход</a>
+    <div style="color: brown" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+    <br>
+    <input type="submit" value="ЗАРЕГИСТРИРОВАТЬСЯ">
 </form>
+<a href="/authentication">ВХОД</a>
+</div>
 </body>
 </html>

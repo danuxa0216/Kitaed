@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -14,17 +15,25 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @NotEmpty(message = "Логин не может быть пустым")
-    @Size(min = 5, max = 100, message = "Логин может быть от 5 до 100 символов")
+    @NotEmpty(message = "Необходимо указать логин")
+    @Size(min = 5, max = 100, message = "Логин должен быть от 5 до 100 символов")
     @Column(name = "login")
     private String login;
 
-    @NotEmpty(message = "Пароль не может быть пустым")
+    @NotEmpty(message = "Необходимо указать пароль")
     @Column(name = "password")
     private String password;
 
     @Column(name = "role")
     private String role;
+
+    @ManyToMany()
+    @JoinTable(name = "product_cart", joinColumns = @JoinColumn(name = "person_id"), inverseJoinColumns =
+    @JoinColumn(name = "product_id"))
+    private List<Product> productList;
+
+    @OneToMany(mappedBy = "person", fetch = FetchType.EAGER)
+    private List<Order> orderList;
 
     public int getId() {
         return id;

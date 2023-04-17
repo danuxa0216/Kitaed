@@ -24,8 +24,8 @@ public class PersonValidator implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         Person person = (Person) target;
-        if (personService.findByLogin(person) != null){
-            errors.rejectValue("login", "", "Данный логин уже существует");
+        if (personService.findByLogin(person) != null) {
+            errors.rejectValue("login", "", "данный логин уже существует");
         }
     }
 }
