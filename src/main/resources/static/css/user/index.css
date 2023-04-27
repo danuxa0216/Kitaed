@@ -1,35 +1,46 @@
-body {
-    background: #E6E6FA;
-}
+/*body {*/
+/*    background: #1c1b1b;*/
+/*    color: #fff;*/
+/*}*/
 
-#searchResult {
-    background: #9370DB;
-    text-align: center;
-}
+/*#searchResult {*/
+/*    background: rgb(255, 193, 7, 0.8);*/
+/*    text-align: center;*/
+/*    border-radius: 3px;*/
+/*    justify-content: center;*/
+/*}*/
 
-#interface {
-    width: 90%;
-    max-height: 100%;
-    margin: 75px auto;
-    padding: 100px;
-}
+/*#interface {*/
+/*    width: 90%;*/
+/*    max-height: 100%;*/
+/*    margin: 75px auto;*/
+/*    padding: 100px;*/
+/*}*/
 
-h1, h3, a, p {
-    font-family: "Calibri";
-}
+/*h1, h3, a, p {*/
+/*    font-family: "Calibri";*/
+/*}*/
 
-input, button {
-    width: 250px;
-    padding: 5px;
-    margin: 1px;
-}
+/*input, button {*/
+/*    width: 250px;*/
+/*    padding: 5px;*/
+/*    margin: 1px;*/
+/*}*/
 
-label:hover, p:hover {
-    color: white;
-}
+/*label:hover {*/
+/*    color: white;*/
+/*}*/
 
-input:hover, button:hover {
-    background-color: white;
-    color: #9370DB;
-    box-shadow: 1px 1px 25px 1px #b1a1d3;
-}
+/*input:hover, button:hover {*/
+/*    color: #212529;*/
+/*}*/
+
+/*#pic1, #pic2, #pic3 {*/
+/*    max-height: 92vh;*/
+/*}*/
+
+/*.cardGroup {*/
+/*    display: grid;*/
+/*    grid-template-columns: repeat(3, 1fr);*/
+/*    justify-content: center;*/
+/*}*/

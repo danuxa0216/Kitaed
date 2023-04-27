@@ -1,6 +1,6 @@
 body {
-    background: #E6E6FA;
-}
+    background: #1c1b1b;
+    color: #fff;}
 
 #interface {
     width: 90%;
@@ -31,7 +31,5 @@ label:hover {
 }
 
 input:hover, select:hover, textarea:hover {
-    /*background-color: white;*/
-    color: #9370DB;
-    box-shadow: 1px 1px 25px 1px #b1a1d3;
+    color: #212529;
 }

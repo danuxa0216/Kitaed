@@ -25,11 +25,14 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests().requestMatchers("/admin").hasRole("ADMIN").requestMatchers("/authentication",
-                "/registration", "/error", "/resources/**", "/static/**", "/css/**", "/js/**", "/img/**", "/product",
-                "/product/info/{id}", "product_search"
-        ).permitAll().anyRequest().hasAnyRole("USER", "ADMIN").and().formLogin().loginPage("/authentication").loginProcessingUrl("/process_login").defaultSuccessUrl("/personalaccount", true).failureUrl("/authentication?error").and().logout().logoutUrl("/logout").logoutSuccessUrl("/authentication");
+                "/registration", "/error", "/resources/**", "/static/**", "/css/**", "/pics/**", "/js/**", "/img/**",
+                "/product", "/orders", "/users",
+                "/product/info/{id}", "product/search", "/contacts").permitAll().anyRequest().hasAnyRole("USER",
+                "ADMIN").and().formLogin().loginPage("/authentication").loginProcessingUrl("/process_login").defaultSuccessUrl("/personalaccount", true).failureUrl("/authentication?error").and().logout().logoutUrl("/logout").logoutSuccessUrl("/authentication");
         return http.build();
     }
+
+
 
 
     @Autowired

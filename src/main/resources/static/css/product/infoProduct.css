@@ -1,24 +1,19 @@
-body {
-    background: #E6E6FA;
-}
+/*body {*/
+/*    background: #1c1b1b;*/
+/*    color: #fff;*/
+/*}*/
 
-#interface {
-    width: 90%;
-    max-height: 100%;
-    margin: 75px auto;
-    padding: 75px;
-}
+/*#interface {*/
+/*    width: 90%;*/
+/*    max-height: 100%;*/
+/*    margin: 75px auto;*/
+/*    padding: 75px;*/
+/*}*/
 
-h3, a, p {
-    font-family: "Calibri";
-}
+/*h3, a, p {*/
+/*    font-family: "Calibri";*/
+/*}*/
 
-img {
-    width: 300px;
-}
-
-img:hover, p:hover {
-    /*background-color: white;*/
-    color: #9370DB;
-    box-shadow: 1px 1px 25px 1px #b1a1d3;
-}
+/*img:hover, p:hover {*/
+/*    color: #212529;*/
+/*}*/
