@@ -53,28 +53,30 @@
 <div id="interface">
   <h3>ИСТОРИЯ ЗАКАЗОВ</h3>
   <hr>
-  <br><br>
+  <br>
   <p style="color: darkgray" class="card-title">здесь будут выводиться все заказы</p>
+<br><hr>
 
-<!--  <div class="container">-->
-<!--    <div class="row">-->
-<!--      <div class="col-sm cardGroup">-->
-<!--        <div th:each="order : ${orders}" class="card" style="width: 18rem;">-->
-<!--          <img th:src="'/img/' + ${order.getProduct().getImageList()[0].getFileName()}" class="card-img-top"-->
-<!--               alt="dishpic">-->
-<!--          <div class="card-body bg-light text-dark">-->
-<!--            <h6 class="card-title" th:text="'Заказ №' + ${order.getNumber()}"></h6>-->
-<!--            <p class="card-title" th:text="'Наименование: ' + ${order.getProduct().getTitle()}">-->
-<!--            <p class="card-title" th:text="'Количество: ' + ${order.getCount()}">-->
-<!--            <p class="card-title" th:text="'Цена: ' + ${order.getPrice()}">-->
-<!--            <p class="card-title"-->
-<!--               th:text="'Дата заказа: ' + ${#temporals.format(order.getDateTime(), 'dd-MMM-yyyy')}"></p>-->
-<!--            <p class="card-title" th:text="'Cтатус: ' + ${order.getStatus()}"></p>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
+  <div class="container">
+
+    <div class="row">
+      <div class="col-sm cardGroup">
+        <div th:each="order : ${orders}" class="card" style="width: 18rem;">
+          <img th:src="'/img/' + ${order.getProduct().getImageList()[0].getFileName()}" class="card-img-top"
+               alt="dishpic">
+          <div class="card-body bg-light text-dark">
+            <h6 class="card-title" th:text="'Заказ №' + ${order.getNumber()}"></h6>
+            <p class="card-title" th:text="'Наименование: ' + ${order.getProduct().getTitle()}">
+            <p class="card-title" th:text="'Количество: ' + ${order.getCount()}">
+            <p class="card-title" th:text="'Цена: ' + ${order.getPrice()}">
+            <p class="card-title"
+               th:text="'Дата заказа: ' + ${#temporals.format(order.getDateTime(), 'dd-MMM-yyyy')}"></p>
+            <p class="card-title" th:text="'Cтатус: ' + ${order.getStatus()}"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 </div>

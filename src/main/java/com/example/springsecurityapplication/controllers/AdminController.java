@@ -4,6 +4,8 @@ import com.example.springsecurityapplication.models.Category;
 import com.example.springsecurityapplication.models.Image;
 import com.example.springsecurityapplication.models.Product;
 import com.example.springsecurityapplication.repositories.CategoryRepository;
+import com.example.springsecurityapplication.services.OrderService;
+import com.example.springsecurityapplication.services.PersonService;
 import com.example.springsecurityapplication.services.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,7 +17,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -23,13 +24,17 @@ public class AdminController {
 
     private final ProductService productService;
 
-//    private final OrderService orderService;
+    private final OrderService orderService;
+
+    private final PersonService personService;
 
     @Value("${upload.path}")
     private String uploadPath;
 
-    public AdminController(ProductService productService, CategoryRepository categoryRepository) {
+    public AdminController(ProductService productService, OrderService orderService, PersonService personService, CategoryRepository categoryRepository) {
         this.productService = productService;
+        this.orderService = orderService;
+        this.personService = personService;
         this.categoryRepository = categoryRepository;
     }
 
@@ -103,9 +108,22 @@ public class AdminController {
 
 
 //    //    // админ выводит список всех ордеров
-//    @GetMapping("/admin/orders")
-//    public String orderAdmin(Model model){
-//        return "orders";
-//    }
+    @GetMapping("/admin/orders")
+    public String orderAdmin(Model model){
+        model.addAttribute("orders", orderService.getAllOrder());
+        return "/orders";
+    }
 
+    @GetMapping("/admin/users")
+    public String usersAdmin(Model model){
+        model.addAttribute("users", personService.getAllPerson());
+        return "/users";
+    }
+
+//    @PostMapping("/admin/users/edit/{id}")
+//    public String editUsers(@ModelAttribute("person") @RequestParam("role") String newRole,
+//                            @PathVariable("id") int id){
+//        personService.updatePersonRole(id, newRole);
+//        return  "redirect:/admin/users";
+//    }
 }
