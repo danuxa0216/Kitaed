@@ -139,7 +139,7 @@ public class MainController {
         model.addAttribute("value_search", search);
         model.addAttribute("value_price_from", from);
         model.addAttribute("value_price_to", to);
-        return "/product/product";
+        return "/user/index";
     }
 
     @GetMapping("/cart/add/{id}")
